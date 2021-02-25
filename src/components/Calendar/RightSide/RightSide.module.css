@@ -1,0 +1,58 @@
+.date{
+  color: #009991;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.weekDaysNameUl{
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+.weekDaysNameLi{
+  color: #EB1B57;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline;
+  width: 30px;
+}
+.calendarContainer{
+  display: flex;
+  flex-direction: column;
+}
+.weekDaysUl{
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-around;
+}
+.weekDaysUl:not(:last-child){
+  margin-bottom: 25px;
+}
+.weekDaysLi{
+  display: inline;
+  width: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #B7B7B7;
+}
+.weekDaysLiCurrent{
+  display: inline;
+  width: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #EB1B57;
+  position: relative;
+}
+.weekDaysLiCurrent::after{
+  content: '';
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: -12px;
+  left: -7px;
+  border: 5px solid #EB1B57;
+  border-radius: 50%;
+}

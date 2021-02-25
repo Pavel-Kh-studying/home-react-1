@@ -1,0 +1,17 @@
+.calendar{
+  margin: 10px 0 0 10px;
+  max-width: 750px;
+  display: flex;
+  border: 10px solid #009991;
+}
+.sectionLeft{
+  width: 50%;
+  text-align: center;
+  background-color: #38CEC4;
+  padding-top: 40px;
+}
+.sectionRight{
+  width: 50%;
+  text-align: center;
+  padding: 40px 0 80px;
+}

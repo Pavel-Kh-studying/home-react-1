@@ -1,0 +1,10 @@
+.dayOfWeek{
+  text-transform: uppercase;
+  color: white;
+  font-size: 25px;
+  margin-bottom: 60px;
+}
+.dayOfMonth{
+  color: white;
+  font-size: 200px;
+}
