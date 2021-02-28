@@ -23,9 +23,14 @@ function RightSide(props) {
         week.map((weekCurrentDay, indexOfDay) => {
           const currentDay = indexOfWeek * 7 + indexOfDay;
           const day = currentDay - startOfMonth(date).getDay() + 1;
-          const nonCurrentMonthDay = <li key={'day-' + currentDay} className={styles.weekDaysLi}></li>;
-          const CurrentMonthDay = <li key={'day-' + currentDay} className={styles.weekDaysLi}>{day}</li>;
-          const todaysDay = <li key={'day-' + currentDay} className={styles.weekDaysLiCurrent}>{day}</li>;
+
+          function renderLi(contentLi, stylesLi) {
+            return <li key={'day-' + currentDay} className={stylesLi}>{contentLi}</li>
+          }
+
+          const nonCurrentMonthDay = renderLi('', styles.weekDaysLi);
+          const currentMonthDay = renderLi(day, styles.weekDaysLi);
+          const todaysDay = renderLi(day, styles.weekDaysLiCurrent);
 
           if (day === getDate(date)) {
             return weekCurrentDay = todaysDay;
@@ -34,12 +39,12 @@ function RightSide(props) {
             if (currentDay <  startOfMonth(date).getDay()) {
               return weekCurrentDay = nonCurrentMonthDay;
             }
-            return weekCurrentDay = CurrentMonthDay;
+            return weekCurrentDay = currentMonthDay;
           }
           if (currentDay > (endOfMonth(date).getDate()) + startOfMonth(date).getDay() - 1) {
             return weekCurrentDay = nonCurrentMonthDay;
           }
-          return weekCurrentDay = CurrentMonthDay;
+          return weekCurrentDay = currentMonthDay;
         })
       }
     </ul>
