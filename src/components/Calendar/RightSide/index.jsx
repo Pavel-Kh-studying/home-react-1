@@ -15,31 +15,31 @@ function RightSide(props) {
     return <li key={'day-' + i} className={styles.weekDaysNameLi}>{day}</li>
   })
 
-  const arrOfWeeks = Array(getWeeksInMonth(date)).fill().map((v, i) => {
-    let week = new Array(7).fill();
+  const arrOfWeeks = Array(getWeeksInMonth(date)).fill().map((nonUsingValue, indexOfWeek) => {
+    const week = new Array(7).fill();
 
-    return <ul key={'week-' + i} className={styles.weekDaysUl}>
+    return <ul key={'week-' + indexOfWeek} className={styles.weekDaysUl}>
       { 
-        week.map((v, j) => {
-          const currentDay = i * 7 + j;
+        week.map((weekCurrentDay, indexOfDay) => {
+          const currentDay = indexOfWeek * 7 + indexOfDay;
           const day = currentDay - startOfMonth(date).getDay() + 1;
           const nonCurrentMonthDay = <li key={'day-' + currentDay} className={styles.weekDaysLi}></li>;
           const CurrentMonthDay = <li key={'day-' + currentDay} className={styles.weekDaysLi}>{day}</li>;
           const todaysDay = <li key={'day-' + currentDay} className={styles.weekDaysLiCurrent}>{day}</li>;
 
           if (day === getDate(date)) {
-            return week[j] = todaysDay;
+            return weekCurrentDay = todaysDay;
           }
-          if (i === 0) {
+          if (indexOfWeek === 0) {
             if (currentDay <  startOfMonth(date).getDay()) {
-              return week[j] = nonCurrentMonthDay;
+              return weekCurrentDay = nonCurrentMonthDay;
             }
-            return week[j] = CurrentMonthDay;
+            return weekCurrentDay = CurrentMonthDay;
           }
           if (currentDay > (endOfMonth(date).getDate()) + startOfMonth(date).getDay() - 1) {
-            return week[j] = nonCurrentMonthDay;
+            return weekCurrentDay = nonCurrentMonthDay;
           }
-          return week[j] = CurrentMonthDay;
+          return weekCurrentDay = CurrentMonthDay;
         })
       }
     </ul>
